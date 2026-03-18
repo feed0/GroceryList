@@ -10,13 +10,24 @@ import SwiftData
 
 @Model
 class Grocery {
+    
+    // MARK: - Properties
+    
     var name: String
     var isChecked: Bool
 
+    // MARK: - Init
+    
     init(name: String,
          isChecked: Bool = false,
     ) {
         self.name = name
         self.isChecked = isChecked
+    }
+    
+    // MARK: - Public methods
+    
+    func resetIsChecked() {
+        isChecked = false
     }
 }

@@ -29,6 +29,11 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Groceries")
+            .toolbar {
+                Button("Reset for next week") {
+                    resetAllToggles()
+                }
+            }
         }
     }
     
@@ -58,6 +63,12 @@ struct ContentView: View {
     private func deleteItems(offsets: IndexSet) {
         for index in offsets {
             context.delete(groceries[index])
+        }
+    }
+    
+    private func resetAllToggles() {
+        for grocery in groceries {
+            grocery.resetIsChecked()
         }
     }
 }
